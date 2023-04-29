@@ -20,13 +20,8 @@ const createGraphicCard = async ( req, res = response ) => {
         // generate success response
         return res.status(201).json({
             ok: true,
-            pid: dbGraphicCard.id,
-            name,
-            manufacturer,
-            model,
-            image,
-            price,
-            msg:"Registrado graphic-card: " + dbGraphicCard.name
+            graphic_card: newGraphicCard,
+            msg:"Actualizado graphic-card: " + newGraphicCard.id
         });
 
     } catch (error) {
