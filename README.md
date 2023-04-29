@@ -21,10 +21,12 @@ Este proyecto es una API para administrar tarjetas gráficas. Se ha desarrollado
 
 La API cuenta con los siguientes endpoints:
 
-- `GET /api/graphic-cards`: Devuelve todas las tarjetas gráficas registradas en la base de datos, paginadas.
-- `GET /api/graphic-cards/:id`: Devuelve la tarjeta gráfica con el ID especificado.
-- `GET /api/graphic-cards?name=:name`: Devuelve todas las tarjetas gráficas que coincidan con el nombre especificado.
-- `POST /api/graphic-cards`: Crea una nueva tarjeta gráfica con los datos enviados en el cuerpo de la solicitud.
+- `GET /graphic-cards`: Devuelve todas las tarjetas gráficas registradas en la base de datos.
+- `GET /graphic-cards?page=:page&limit=:limit`: Devuelve todas las tarjetas gráficas registradas en la base de datos paginadas segun pagina y cantidad limite de graficas.
+- `POST /graphic-cards/name/` Devuelve todas las tarjetas gráficas que coincidan con el nombre especificado en el body.
+- `POST /graphic-cards/id/`: Devuelve la tarjeta gráfica con el ID especificado en el body.
+- `POST /graphic-cards/new`: Crea una nueva tarjeta gráfica con los datos enviados en el body de la solicitud.
+- `PUT /graphic-cards/new`: Crea una nueva tarjeta gráfica con los datos enviados en el body de la solicitud necesita un id.
 
 ## Contribuciones
 
