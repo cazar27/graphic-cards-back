@@ -39,12 +39,10 @@ const createGraphicCard = async ( req, res = response ) => {
     }
 }
 
-
 const updateGraphicCard = async ( req, res = response ) => {
     const {id, name, manufacturer, model, image , price } = req.body;
 
     try {
-        // mail validator(no duplicate)
         const graphicCard = await GraphicCard.findOne({ _id: id });
         
         await graphicCard.updateOne({
@@ -78,13 +76,12 @@ const getGraphicCardByName = async ( req, res = response ) => {
     const { name } = req.body;
     
     try {
-        //get GraphicCard By Name
         const dbGraphicCard = await GraphicCard.findOne( { name } );
         if(dbGraphicCard) {
             return res.status(201).json({
                 ok: true,
                 graphic_card: dbGraphicCard,
-                msg:"Encontrado graphic-card con nombre: " + dbGraphicCard.name
+                msg:"Encontrado graphic-card con nombre: " + name
             });
         } else {
             return res.status(400).json({
@@ -102,6 +99,32 @@ const getGraphicCardByName = async ( req, res = response ) => {
     }
 }
 
+const getGraphicCardsByName = async ( req, res = response ) => {
+    const { name } = req.body;
+    
+    try {
+        const dbGraphicCard = await GraphicCard.find( { name } );
+        if(dbGraphicCard) {
+            return res.status(201).json({
+                ok: true,
+                graphic_card: dbGraphicCard,
+                msg:"Encontradas graphic-cards con nombre: " + name
+            });
+        } else {
+            return res.status(400).json({
+                ok: false,
+                msg: 'El graphic-cards con nombre: ' + name + ' no ha sido encontradas'
+            });
+        }
+    } catch (error) {
+        
+        return res.status(500).json({
+            ok: false,
+            msg: 'Por favor hable con el administrador',
+            errr_msg: error
+        });
+    }
+}
 
 const getGraphicCardById = async ( req, res = response ) => {
     const { id } = req.body;
@@ -179,5 +202,6 @@ module.exports = {
     getGraphicCardsCount,
     getGraphicCardByName,
     getGraphicCardById,
-    updateGraphicCard
+    updateGraphicCard,
+    getGraphicCardsByName
 };
