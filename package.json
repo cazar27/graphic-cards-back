@@ -1,0 +1,30 @@
+{
+  "name": "angular-fh",
+  "version": "1.0.0",
+  "description": "graphic cards api app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cazar27/graphic-cards-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cazar27/graphic-cards-back/issues"
+  },
+  "homepage": "https://github.com/cazar27/graphic-cards-back#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.13.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.1.0"
+  }
+}
